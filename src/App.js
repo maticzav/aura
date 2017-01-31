@@ -8,12 +8,7 @@ export default() => (
             <Hasher/>
         </div>
         <span className={css(styles.by)}>
-            Made with
-            <span className={css(styles.heart)}>&#10084;</span>
-             by
-            <a className={css(styles.twitter)} href="https://twitter.com/zavadlalm">
-                @zavadlalm
-            </a>
+            Made with <span className={css(styles.heart)}>&#10084;</span> by <a className={css(styles.twitter)} href="https://twitter.com/zavadlalm">@zavadlalm</a>
         </span>
     </main>
 )
@@ -33,8 +28,7 @@ const styles = {
     },
     twitter: {
         color: '#805d2f',
-        textDecoration: 'none',
-        marginLeft: '5px'
+        textDecoration: 'none'
     },
     hasher: {
         flex: '1',

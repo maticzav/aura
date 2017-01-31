@@ -1,24 +1,29 @@
 import React, {Component} from 'react';
 import {css, merge} from 'glamor';
+import hasher from 'hash-index';
 
 export default class Hasher extends Component {
     constructor() {
         super()
+        this.hash = this.hash.bind(this)
         this.state = {
-            hash: 0
+            hash: 0,
+            focus: false
         }
     }
 
-    hash(text) {
-        const hash = 1;
+    hash(e) {
+        const name = e.target.value;
+        const hash = hasher(name, 360);
+        console.log(hash);
         this.setState({hash})
     }
 
     render() {
         return (
-            <div className={merge(css(styles.main), css(gradient(this.state.hash)))}>
+            <div className={merge(css(styles.main), css(gradient(this.state.hash)), css(focus(this.state.focus)))}>
                 <div className={css(styles.inputContainer)}>
-                    <input className={css(styles.input)} onChange={this.hash} placeholder="Enter your name."></input>
+                    <input className={css(styles.input)} onChange={this.hash} placeholder="Enter your name."/>
                 </div>
 
             </div>
@@ -27,36 +32,50 @@ export default class Hasher extends Component {
 }
 
 const gradient = (hash) => {
-    const bg = '4CD96E';
-    const end = '5892B0';
+    const t1 = `hsl(${hash - 40}, 100%, 50%)`;
+    const t2 = `hsl(${hash + 30}, 100%, 50%)`;
 
-    return {backgroud: `linear-gradient(#${bg}, #${end})`}
+    return {
+        background: `linear-gradient(${t1}, ${t2})`, // bg-gradient
+        animationDuration: '1s'
+    }
+}
+
+const focus = (focus) => {
+    return {}
 }
 
 const styles = {
     main: {
         position: 'absolute',
+        display: 'flex',
+        flexFlow: 'column',
+        justifyContent: 'center',
         height: '100%',
         width: '100%',
-        background: 'black',
         textAlign: 'center'
     },
     inputContainer: {
-        width: '90%',
-        margin: '200px auto',
+        width: '80%',
+        margin: 'auto',
         lineHeight: '32px',
         maxWidth: '400px',
-        borderBottom: '1px solid white'
+        borderBottom: '2px solid white'
     },
     input: {
         color: 'white',
+        border: '0',
         textAlign: 'center',
         width: '242px',
         lineHeight: '22px',
         fontSize: '12px',
+        fontWeight: '500',
         backgroundColor: 'transparent',
         ':focus': {
             outline: 'none'
+        },
+        '::placeholder': {
+            color: 'white'
         }
     }
 }
