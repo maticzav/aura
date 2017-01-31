@@ -7,13 +7,13 @@ export default class Hasher extends Component {
         super()
         this.hash = this.hash.bind(this)
         this.state = {
-            hash: 0,
+            hash: hasher('', 360),
             focus: false
         }
     }
 
     hash(e) {
-        const name = e.target.value;
+        const name = e.target.value.trim();
         const hash = hasher(name, 360);
         console.log(hash);
         this.setState({hash})
@@ -32,12 +32,11 @@ export default class Hasher extends Component {
 }
 
 const gradient = (hash) => {
-    const t1 = `hsl(${hash - 40}, 100%, 50%)`;
-    const t2 = `hsl(${hash + 30}, 100%, 50%)`;
+    const t1 = `hsl(${hash - 55}, 100%, 50%)`;
+    const t2 = `hsl(${hash + 55}, 100%, 50%)`;
 
     return {
-        background: `linear-gradient(${t1}, ${t2})`, // bg-gradient
-        animationDuration: '1s'
+        background: `linear-gradient(${t1}, ${t2})` // bg-gradient
     }
 }
 
