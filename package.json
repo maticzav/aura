@@ -2,7 +2,7 @@
     "name": "aura",
     "version": "1.0.0",
     "description": "Color of your name.",
-    "main": "main.js",
+    "main": "server.js",
     "repository": "http://github.com/maticzav/aura",
     "author": "Matic Zavadlal",
     "license": "MIT",
