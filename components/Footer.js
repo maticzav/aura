@@ -2,10 +2,7 @@ import {css} from 'glamor'
 
 export default() => (
     <footer className={css(styles.footer)}>
-        Made with
-        <span className={css(styles.heart)}>&#10084;</span>
-        by
-        <a className={css(styles.twitter)} href="https://twitter.com/zavadlalm">@zavadlalm</a>
+        Made with <span className={css(styles.heart)}>&#10084;</span> by <a className={css(styles.twitter)} href="https://twitter.com/zavadlalm">@zavadlalm</a>
     </footer>
 )
 
