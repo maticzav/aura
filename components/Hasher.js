@@ -15,7 +15,7 @@ export default class Hasher extends Component {
     hash(e) {
         const name = e.target.value.trim();
         const hash = hasher(name, 360);
-        console.log(hash);
+        
         this.setState({hash})
     }
 

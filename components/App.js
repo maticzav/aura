@@ -20,9 +20,10 @@ export default({children}) => (
 
                 #__next {
                     height: 100%;
-                }`}</style>
+                }
+                 `
+            }</style>
     </main>
-
 )
 
 const styles = {
