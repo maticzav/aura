@@ -21,11 +21,12 @@ export default class Hasher extends Component {
 
     render() {
         return (
-            <div className={merge(css(styles.main), css(gradient(this.state.hash)), css(focus(this.state.focus)))}>
-                <div className={css(styles.inputContainer)}>
-                    <input className={css(styles.input)} onChange={this.hash} placeholder="Enter your name."/>
+            <div className={css(styles.hasher)}>
+                <div className={merge(css(styles.main), css(gradient(this.state.hash)), css(focus(this.state.focus)))}>
+                    <div className={css(styles.inputContainer)}>
+                        <input className={css(styles.input)} onChange={this.hash} placeholder="Enter your name."/>
+                    </div>
                 </div>
-
             </div>
         )
     }
@@ -45,6 +46,10 @@ const focus = (focus) => {
 }
 
 const styles = {
+    hasher: {
+        flex: '1',
+        position: 'relative'
+    },
     main: {
         position: 'absolute',
         display: 'flex',
