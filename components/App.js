@@ -1,31 +1,5 @@
 import {css} from 'glamor'
 
-export default({children}) => (
-    <main className={css(styles.container)}>
-        {children}
-        <style jsx global>
-            {
-                `html,
-                body {
-                    height: 100%;
-                    margin: 0;
-                    padding: 0;
-                }
-
-                body {
-                    font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
-
-                    text-rendering: geometricPrecision;
-                }
-
-                #__next {
-                    height: 100%;
-                }
-                 `
-            }</style>
-    </main>
-)
-
 const styles = {
     container: {
         height: '100%',
@@ -33,5 +7,24 @@ const styles = {
         textAlign: 'center',
         display: 'flex',
         flexFlow: 'column'
+    },
+    global: {
+        height: '100%',
+        margin: '0',
+        padding: '0',
+        fontFamily: 'Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif',
+        textRendering: 'geometricPrecision'
+    },
+    next: {
+        height: '100%'
     }
 }
+
+css.global('body, html', styles.global)
+css.global('#__next, #__next>div', styles.next)
+
+export default({children}) => (
+    <main className={css(styles.container)}>
+        {children}
+    </main>
+)
